@@ -6,10 +6,10 @@ public class Prodotto {
 	private int id;
 	private String nome;
 	private String descrizione;
-	private float prezzo;
-	private float iva = (float)0.22;
+	private double prezzo;
+	private double iva = 0.22;
 	
-	public Prodotto(String nome, String descrizione, float prezzo) {
+	public Prodotto(String nome, String descrizione, double prezzo) {
 		this.nome = nome;
 		this.descrizione = descrizione;
 		this.id = generateId();
@@ -32,19 +32,19 @@ public class Prodotto {
 		this.descrizione = descrizione;
 	}
 
-	public float getPrezzo() {
+	public double getPrezzo() {
 		return prezzo;
 	}
 
-	public void setPrezzo(float prezzo) {
+	public void setPrezzo(double prezzo) {
 		this.prezzo = prezzo;
 	}
 
-	public float getIva() {
+	public double getIva() {
 		return iva;
 	}
 
-	public void setIva(float iva) {
+	public void setIva(double iva) {
 		this.iva = iva;
 	}
 
@@ -58,10 +58,10 @@ public class Prodotto {
 		return randomGen.nextInt(9999999);
 	}
 	
-	public float prezzoIncluso() {
-		float prezzoIncluso = prezzo + getPrezzo() * iva;
-		// String prezzoIncluso2 = String.format("%.2f", prezzoIncluso);
-		return prezzoIncluso;
+	public String prezzoIncluso() {
+		double prezzoIncluso = prezzo + getPrezzo() * iva;
+		String prezzoIncluso2 = String.format("%.2f", prezzoIncluso);
+		return prezzoIncluso2;
 	}
 	
 }
